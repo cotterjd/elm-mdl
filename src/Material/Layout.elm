@@ -768,54 +768,54 @@ drawerButton lift isVisible =
     div
         [--onKeypressFilterSpaceAndEnter
         ]
-        [ div
-            [ classList
-                [ ( "mdl-layout__drawer-button", True )
-                ]
-            , Html.Attributes.attribute
-                "aria-expanded"
-                (if isVisible then
-                    "true"
-                 else
-                    "false"
-                )
-            , tabindex 1
-              {- No-one else is putting events on the drawerbutton, so we don't
-                 need to go through dispatch here.
-              -}
-            , Events.onClick (lift ToggleDrawer)
-            , Events.onWithOptions
-                "keydown"
-                { stopPropagation = False
-                , preventDefault =
-                    False
-                    --  True
-                    {- Should stop propagation exclusively on ENTER, but elm
-                       currently require me to decide on options before the keycode
-                       value is available.
-                    -}
-                }
-                (Decoder.map
-                    (lift
-                        << \key ->
-                            case key of
-                                32
-                                {- SPACE -}
-                                ->
-                                    ToggleDrawer
+        [ --div
+          --  [ classList
+          --      [ ( "mdl-layout__drawer-button", True )
+          --      ]
+          --  , Html.Attributes.attribute
+          --      "aria-expanded"
+          --      (if isVisible then
+          --          "true"
+          --       else
+          --          "false"
+          --      )
+          --  , tabindex 1
+          --    {- No-one else is putting events on the drawerbutton, so we don't
+          --       need to go through dispatch here.
+          --    -}
+          --  , Events.onClick (lift ToggleDrawer)
+          --  , Events.onWithOptions
+          --      "keydown"
+          --      { stopPropagation = False
+          --      , preventDefault =
+          --          False
+          --          --  True
+          --          {- Should stop propagation exclusively on ENTER, but elm
+          --             currently require me to decide on options before the keycode
+          --             value is available.
+          --          -}
+          --      }
+          --      (Decoder.map
+          --          (lift
+          --              << \key ->
+          --                  case key of
+          --                      32
+          --                      {- SPACE -}
+          --                      ->
+          --                          ToggleDrawer
 
-                                13
-                                {- ENTER -}
-                                ->
-                                    ToggleDrawer
+          --                      13
+          --                      {- ENTER -}
+          --                      ->
+          --                          ToggleDrawer
 
-                                _ ->
-                                    NOP
-                    )
-                    Events.keyCode
-                )
-            ]
-            [ Icon.i "menu" ]
+          --                      _ ->
+          --                          NOP
+          --          )
+          --          Events.keyCode
+          --      )
+          --  ]
+          --  [ Icon.i "menu" ]
         ]
 
 
