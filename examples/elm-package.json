@@ -1,7 +1,7 @@
 {
     "version": "6.0.0",
     "summary": "Getting Started with elm-mdl",
-    "repository": "https://github.com/debois/elm-mdl.git",
+    "repository": "https://github.com/cotterjd/elm-mdl.git",
     "license": "BSD3",
     "source-directories": [
         "."
