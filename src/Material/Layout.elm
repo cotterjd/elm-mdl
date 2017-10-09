@@ -783,7 +783,7 @@ drawerButton lift isVisible =
               {- No-one else is putting events on the drawerbutton, so we don't
                  need to go through dispatch here.
               -}
-            , Events.onClick Nop --(lift ToggleDrawer)
+            , Events.onClick NOP --(lift ToggleDrawer)
             , Events.onWithOptions
                 "keydown"
                 { stopPropagation = False
