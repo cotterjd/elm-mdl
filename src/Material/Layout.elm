@@ -1077,6 +1077,9 @@ toggleDrawer :
     (Component.Msg button textfield menu Msg toggles tooltip tabs dispatch -> m)
     -> m
 toggleDrawer lift =
+    let
+        blah = (Debug.log "drawer toggled" 0)
+    in
     (Component.LayoutMsg >> lift) ToggleDrawer
 
 
